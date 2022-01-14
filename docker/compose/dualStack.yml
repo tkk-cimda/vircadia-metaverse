@@ -1,39 +1,23 @@
 #Compose file format  version
 version: '3.1'
 
-# Use root/example as user/password credentials
-#
 services:
   mongo:
     image: mongo:4.4
     volumes:
       - ./data/db:/data/db
       - ./temp:/temp
-        #- ./temp/mongod.conf.cp:/etc/mongod.conf
-        #command: --config /etc/mongod.conf
-        #command: ["-f", "/etc/mongod.conf"]
-    #restart means if to bring up the container on system on
-    #  "no"            :This is the default value, it means that the containers would not be restarted
-    #  on-failure    :This would restart the container in case that there is an error and the container crashes
-    #  always        :Always restart the container if it stops
-    #  unless-stopped:The container would always be restarted unless it was manually stopped
     restart: "no"
     ports:
       - ${MONGO_PORT}:27017
-    #TODO for better healthcheck: see https://github.com/rwynn/monstache-showcase
     healthcheck:
       test: "exit 0"
     environment:
-      #edit ${MONGO_USER} at .env
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
-      #note the password is fixed once spawned inside DB
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
 
   mongo-express:
     image: mongo-express:1.0.0-alpha.4
-    #unknown reason it failed something, need restart
-    #This express need to wait mongo to heat up a while, so that can connect, so set to always
-    #restart: always
     depends_on:
       mongo:
         condition: service_healthy
