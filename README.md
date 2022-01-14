@@ -24,3 +24,7 @@ See https://en.wikipedia.org/wiki/Iamus .
 [NodeJS]: https://nodejs.org/
 [ExpressJS]: https://expressjs.com/
 [TypeScript]: https://www.typescriptlang.org/
+
+## tkk-cimda build process
+
+refer to [here](https://github.com/tkk-cimda/selfNote/blob/main/metaverse/vircadia-metaverse.md)

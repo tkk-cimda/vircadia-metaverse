@@ -1,0 +1,26 @@
+{
+    "metaverse": {
+        "metaverse-name": "My Metaverse",
+        "metaverse-nick-name": "MyVerse",
+        "metaverse-server-url": "https://metaverse.example.org:9400/",
+        "default-ice-server-url": "ice.example.org:7337"
+    },
+    "server": {
+        "cert-file": "config/cert.pem",
+        "key-file": "config/privkey.pem",
+        "chain-file": "config/chain.pem"
+    },
+    "metaverse-server": {
+        "metaverse-info-addition-file": "config/metaverse_info.json"
+    },
+    "database": {
+        "db": "myverse",
+        "db-host": "metaverse.example.org",
+        "db-user": "DBUSER",
+        "db-pw": "DBUSERPASSWORD"
+    },
+    "debug": {
+        "loglevel": "debug",
+        "devel": true
+    }
+}
